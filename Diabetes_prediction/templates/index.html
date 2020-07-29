@@ -1,0 +1,36 @@
+<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style.css')}}">
+      <title>Diabetes prediction</title>
+    </head>
+
+    <body>
+      <br>
+      <br>
+      <p>
+        <h2>
+          For checking whether you have diabetes or not please fill the details below and enter submit.
+        </h2>
+      </p>
+      <br>
+      <br>
+        <div class="contact-us">
+            <form action="{{ url_for('predict')}}" method="post">
+              <input name="Pregnancies" placeholder="Pregnancies" type="number" required>
+              <input name="Glucose" placeholder="Glucose" type="number" required>
+              <input name="BP" placeholder="BloodPressure (mm/Hg)" type="number" required>
+              <input type="number" name="Insulin" placeholder="Insulin (muU/ml)" required>
+              <input type="number" name="BMI" placeholder="Body Mass Index(BMI)" required>
+              <input type="number" name="Age" placeholder="Age" required>
+              <button type="submit">Submit</button>
+            </form>
+            
+            <br>
+            <br>
+            <p>
+              {{prediction_outcome}}
+            </p>
+            
+        </div>
+    </body>
+</html>
